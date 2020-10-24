@@ -50,6 +50,12 @@
     ]
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^3.0.0"
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "husky": "^4.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run test"
+    }
   }
 }
