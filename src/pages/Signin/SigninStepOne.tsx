@@ -12,11 +12,17 @@ interface SigninStepOneProps {
 }
 
 const SigninStepOne: React.FC<SigninStepOneProps> = (props) => {
-    const { handleSubmit, control, errors } = useForm<SigninInputsStepOne>();
+    const { handleSubmit, control, errors } = useForm<SigninInputsStepOne>({
+        defaultValues: {
+            username: ""
+        }
+    });
     const [sending, setSending] = useState<boolean>(false);
+    const [btnText, setBtnText] = useState<string>('Next');
 
     const onSubmit = (data: SigninInputsStepOne) => {
         setSending(true);
+        setBtnText('Verifiying');
         setTimeout(() => {
             setSending(false);
             props.onSuccess(data.username);
@@ -44,9 +50,10 @@ const SigninStepOne: React.FC<SigninStepOneProps> = (props) => {
                     )}
                     disabled={sending}
                     errorMessage={String(errors.username?.message)}
+                    placeholder="Username"
                 />
                 <MainButton
-                    label="Next"
+                    label={btnText}
                     type="submit"
                     disabled={sending}
                     loading={sending}

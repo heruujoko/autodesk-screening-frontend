@@ -14,7 +14,11 @@ interface SigninStepTwoProps {
 }
 
 const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
-    const { handleSubmit, control, errors } = useForm<SigninInputsStepTwo>();
+    const { handleSubmit, control, errors } = useForm<SigninInputsStepTwo>({
+        defaultValues: {
+            password: ""
+        }
+    });
     const [sending, setSending] = useState<boolean>(false);
 
     const onSubmit = (data: SigninInputsStepTwo) => {
