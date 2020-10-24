@@ -7,7 +7,7 @@ const AuthLayout: React.FC = (props) => {
                 {props.children}
                 <div className="footer">
                     <p className="text-sm">
-                        <span className="text-gray-600">Your account for everything Autodesk</span>{" "}
+                        <span className="text-muted">Your account for everything Autodesk</span>{" "}
                         <button className="link">learn more</button>
                     </p>
                 </div>

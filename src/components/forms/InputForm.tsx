@@ -18,7 +18,7 @@ const InputForm: React.FC<InputFormProps> = (props) => {
     return (
         <div className="form-input-wrapper">
             <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block text-sm font-bold mb-2"
             >
                 {props.label}
             </label>

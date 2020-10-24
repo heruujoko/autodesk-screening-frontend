@@ -15,7 +15,7 @@ const MainButton: React.FC<MainButtonProps> = (props) => {
         <button
             disabled={props.disabled}
             className={clsx({
-                "text-white font-bold py-8p rounded focus:outline-none focus:shadow-outline w-full main-button-margin": true,
+                "main-button focus:outline-none focus:shadow-outline": true,
                 "bg-blue-600 hover:bg-blue-700": !props.disabled,
                 "bg-gray-400": props.disabled,
             })}

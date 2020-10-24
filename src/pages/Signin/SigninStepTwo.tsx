@@ -3,50 +3,57 @@ import { useForm, Controller } from "react-hook-form";
 import InputForm from "../../components/forms/InputForm";
 import MainButton from "../../components/MainButton";
 
-interface SigninInputsStepOne {
+interface SigninInputsStepTwo {
+    password: string;
+}
+
+interface SigninStepTwoProps {
+    onSuccess: () => void;
     username: string;
+    onBack: () => void;
 }
 
-interface SigninStepOneProps {
-    onSuccess: (username: string) => void;
-}
-
-const SigninStepOne: React.FC<SigninStepOneProps> = (props) => {
-    const { handleSubmit, control, errors } = useForm<SigninInputsStepOne>();
+const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
+    const { handleSubmit, control, errors } = useForm<SigninInputsStepTwo>();
     const [sending, setSending] = useState<boolean>(false);
 
-    const onSubmit = (data: SigninInputsStepOne) => {
+    const onSubmit = (data: SigninInputsStepTwo) => {
         setSending(true);
         setTimeout(() => {
             setSending(false);
-            props.onSuccess(data.username);
+            props.onSuccess();
         }, 800);
     };
 
     return (
         <>
-            <div className="banner-text">
-                <p>Signin</p>
+            <div className="flex flex-row items-center justify-center banner-text">
+                <i onClick={props.onBack} className="fa fa-chevron-left text-blue-400 link-ico"></i>
+                <div className="w-full text-center">
+                    <p className="text-2xl">Welcome</p>
+                    <span className="text-sm text-muted">{props.username}</span>
+                </div>
             </div>
+
             <form
                 className="bg-white rounded"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <Controller
                     as={InputForm}
-                    name="username"
-                    label="Username"
+                    name="password"
+                    label="Password"
                     control={control}
-                    type="text"
-                    rules={{ required: "please input a valid username" }}
+                    type="password"
+                    rules={{ required: "please input a password" }}
                     isError={Boolean(
-                        errors.username && errors.username.message
+                        errors.password && errors.password.message
                     )}
                     disabled={sending}
-                    errorMessage={String(errors.username?.message)}
+                    errorMessage={String(errors.password?.message)}
                 />
                 <MainButton
-                    label="Next"
+                    label="Sign in"
                     type="submit"
                     disabled={sending}
                     loading={sending}
@@ -60,4 +67,4 @@ const SigninStepOne: React.FC<SigninStepOneProps> = (props) => {
     );
 };
 
-export default SigninStepOne;
+export default SigninStepTwo;
