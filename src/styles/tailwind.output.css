@@ -22887,6 +22887,137 @@ video {
           animation: bounce 1s infinite;
 }
 
+/* custom styles */
+
+.mt-48p {
+  margin-top: 48px;
+}
+
+.mb-24p {
+  margin-bottom: 24px;
+}
+
+.mb-12p {
+  margin-bottom: 12px;
+}
+
+.mb-8p {
+  margin-bottom: 8px;
+}
+
+.py-8p {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.auth-layout {
+  margin-top: 48px;
+}
+
+.banner-text {
+  margin-bottom: 24px;
+}
+
+.form-input-wrapper {
+  margin-bottom: 12px;
+}
+
+.main-button-margin {
+  margin-bottom: 8px;
+}
+
+.text-blk {
+  color: #3c3c3c;
+}
+
+.lh-22p {
+  line-height: 22px;
+}
+
+.font-16p {
+  font-size: 16px;
+}
+
+.text-muted {
+  color: #808080;
+}
+
+.link {
+  --text-opacity: 1;
+  color: #63b3ed;
+  color: rgba(99, 179, 237, var(--text-opacity));
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-ico {
+  --text-opacity: 1;
+  color: #63b3ed;
+  color: rgba(99, 179, 237, var(--text-opacity));
+  cursor: pointer;
+}
+
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  padding-bottom: 1rem;
+}
+
+.input-form {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  color: #3c3c3c;
+  line-height: 1.25;
+  line-height: 22px;
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+}
+
+.main-button {
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  font-size: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 0.25rem;
+  width: 100%;
+  margin-bottom: 8px;
+  line-height: 22px;
+}
+
+.focus-danger {
+  box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.5);
+}
+
+body {
+  color: #3c3c3c;
+}
+
+.banner-text > p {
+  font-size: 22px;
+  line-height: 28px;
+  color: 000000;
+}
+
+.banner-text > small {
+  font-size: 14px;
+  line-height: 20px;
+  color: #808080;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

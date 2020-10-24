@@ -1,3 +1,101 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* custom styles */
+.mt-48p {
+    margin-top: 48px;
+}
+
+.mb-24p {
+    margin-bottom: 24px;
+}
+
+.mb-12p {
+    margin-bottom: 12px;
+}
+
+.mb-8p {
+    margin-bottom: 8px;
+}
+
+.py-8p {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.auth-layout {
+    @apply mt-48p;
+}
+
+.banner-text {
+    @apply mb-24p;
+}
+
+.form-input-wrapper {
+    @apply mb-12p;
+}
+
+.main-button-margin {
+    @apply mb-8p;
+}
+
+.text-blk {
+    color: #3c3c3c;
+}
+
+.lh-22p {
+    line-height: 22px;
+}
+
+.font-16p {
+    font-size: 16px;
+}
+
+.text-muted {
+    color: #808080;
+}
+
+.link {
+    @apply text-blue-400 underline cursor-pointer;
+}
+
+.link-ico {
+    @apply text-blue-400 cursor-pointer;
+}
+
+.footer {
+    @apply absolute text-center bottom-0 pb-4;
+}
+
+.input-form {
+    @apply shadow appearance-none border rounded w-full py-2 px-3 text-blk leading-tight lh-22p;
+}
+
+button:disabled {
+    cursor: not-allowed !important;
+}
+
+.main-button {
+    @apply text-white font-16p py-8p rounded w-full main-button-margin lh-22p;
+}
+
+.focus-danger {
+    box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.5);
+}
+
+body {
+    @apply text-blk;
+}
+
+.banner-text > p {
+    font-size: 22px;
+    line-height: 28px;
+    color: 000000;
+}
+
+.banner-text > small {
+    font-size: 14px;
+    line-height: 20px;
+    @apply text-muted;
+}
