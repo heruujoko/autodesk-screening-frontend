@@ -22887,6 +22887,59 @@ video {
           animation: bounce 1s infinite;
 }
 
+/* custom styles */
+
+.mt-48p {
+  margin-top: 48px;
+}
+
+.mb-24p {
+  margin-bottom: 24px;
+}
+
+.mb-12p {
+  margin-bottom: 12px;
+}
+
+.mb-8p {
+  margin-bottom: 8px;
+}
+
+.py-8p {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.auth-layout {
+  margin-top: 48px;
+}
+
+.banner-text {
+  margin-bottom: 24px;
+}
+
+.form-input-wrapper {
+  margin-bottom: 12px;
+}
+
+.main-button-margin {
+  margin-bottom: 8px;
+}
+
+.link {
+  --text-opacity: 1;
+  color: #63b3ed;
+  color: rgba(99, 179, 237, var(--text-opacity));
+  text-decoration: underline;
+}
+
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  padding-bottom: 0.5rem;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

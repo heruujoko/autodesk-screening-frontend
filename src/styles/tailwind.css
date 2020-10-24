@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* custom styles */
+.mt-48p {
+    margin-top: 48px;
+}
+
+.mb-24p {
+    margin-bottom: 24px;
+}
+
+.mb-12p {
+    margin-bottom: 12px;
+}
+
+.mb-8p {
+    margin-bottom: 8px;
+}
+
+.py-8p {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.auth-layout {
+    @apply mt-48p;
+}
+
+.banner-text {
+    @apply mb-24p;
+}
+
+.form-input-wrapper {
+    @apply mb-12p;
+}
+
+.main-button-margin {
+    @apply mb-8p;
+}
+
+.link {
+    @apply text-blue-400 underline;
+}
+
+.footer {
+    @apply absolute text-center bottom-0 pb-2;
+}
