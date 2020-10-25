@@ -23,6 +23,7 @@ const InputForm: React.FC<InputFormProps> = (props) => {
                 {props.label}
             </label>
             <input
+                data-testid={`datatest-${props.name}`}
                 value={props.value}
                 onChange={props.onChange}
                 name={props.name}

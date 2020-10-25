@@ -125,7 +125,7 @@ const Signup: React.FC = () => {
                 <Controller
                     as={InputForm}
                     name="confirmPassword"
-                    label="Re-type passowrd"
+                    label="Re-type password"
                     control={control}
                     type="password"
                     rules={{ 
