@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AuthLayout from "./layouts/AuthLayout";
+import Notification from "./components/Notification";
 
 const Signin = lazy(() => import("./pages/Signin/Signin"));
 const Signup = lazy(() => import("./pages/Signup"));
@@ -24,6 +25,8 @@ function App() {
                     </Switch>
                 </Suspense>
             </Router>
+
+            <Notification />
         </div>
     );
 }

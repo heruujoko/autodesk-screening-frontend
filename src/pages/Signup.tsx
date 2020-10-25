@@ -3,7 +3,8 @@ import { useForm, Controller } from "react-hook-form";
 import InputForm from "../components/forms/InputForm";
 import MainButton from "../components/MainButton";
 import identityService from "../services/identity.service";
-import {IdentityRequest} from "../interfaces/IdentityRequest";
+import { IdentityRequest } from "../interfaces/IdentityRequest";
+import notificationService from "../services/notification.service";
 
 const Signup: React.FC = () => {
     const { handleSubmit, control, errors, watch } = useForm<IdentityRequest>({
@@ -19,11 +20,10 @@ const Signup: React.FC = () => {
     const [sending, setSending] = useState<boolean>(false);
 
     const onSubmit = async (data: IdentityRequest) => {
-        // TODO
-        console.log(data);
         setSending(true);
         try {
-            await identityService.signup(data)
+            await identityService.signup(data);
+            notificationService.successNotification('Account created successfully');
         } catch (err) {
             // TODO
             console.log(err);
@@ -130,7 +130,7 @@ const Signup: React.FC = () => {
                     label="Re-type password"
                     control={control}
                     type="password"
-                    rules={{ 
+                    rules={{
                         required: "please re-type password",
                         validate: (value) => {
                             if (value === watch("password")) {
@@ -139,7 +139,7 @@ const Signup: React.FC = () => {
                                 return "password mismatch";
                             }
                         },
-                     }}
+                    }}
                     isError={Boolean(
                         errors.confirmPassword && errors.confirmPassword.message
                     )}

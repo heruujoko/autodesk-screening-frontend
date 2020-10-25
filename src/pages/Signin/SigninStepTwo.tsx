@@ -4,6 +4,7 @@ import InputForm from "../../components/forms/InputForm";
 import MainButton from "../../components/MainButton";
 import SignupLink from "./SignupLink";
 import identityService from "../../services/identity.service";
+import notificationService from "../../services/notification.service";
 
 interface SigninInputsStepTwo {
     password: string;
@@ -27,6 +28,7 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
         setSending(true);
         try {
             await identityService.authenticate(props.username, data.password);
+            notificationService.successNotification('Authentication success');
         } catch (err) {
             // TODO
             console.log(err);
