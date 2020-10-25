@@ -3,15 +3,22 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AuthLayout from "./layouts/AuthLayout";
 
 const Signin = lazy(() => import("./pages/Signin/Signin"));
+const Signup = lazy(() => import("./pages/Signup"));
+
 function App() {
     return (
         <div className="main-container">
             <Router>
                 <Suspense fallback={<div></div>}>
                     <Switch>
-                        <Route path="/">
+                        <Route exact path="/">
                             <AuthLayout>
                                 <Signin />
+                            </AuthLayout>
+                        </Route>
+                        <Route exact path="/signup">
+                            <AuthLayout>
+                                <Signup />
                             </AuthLayout>
                         </Route>
                     </Switch>

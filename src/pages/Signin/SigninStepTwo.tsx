@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import InputForm from "../../components/forms/InputForm";
 import MainButton from "../../components/MainButton";
+import SignupLink from "./SignupLink";
 
 interface SigninInputsStepTwo {
     password: string;
@@ -40,7 +41,6 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
             </div>
 
             <form
-                className="bg-white rounded"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <Controller
@@ -62,11 +62,8 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
                     disabled={sending}
                     loading={sending}
                 />
-                <p>
-                    <span className="text-gray-600">New to Autodesk?</span>{" "}
-                    <button className="link underline">Create account</button>
-                </p>
             </form>
+            <SignupLink />
         </>
     );
 };
