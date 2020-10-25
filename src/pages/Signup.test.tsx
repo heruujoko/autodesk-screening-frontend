@@ -4,7 +4,6 @@ import {
     fireEvent,
     getByText,
     waitFor,
-    getByPlaceholderText,
 } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
 

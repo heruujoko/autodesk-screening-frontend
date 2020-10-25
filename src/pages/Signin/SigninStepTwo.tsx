@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import InputForm from "../../components/forms/InputForm";
 import MainButton from "../../components/MainButton";
 import SignupLink from "./SignupLink";
+import identityService from "../../services/identity.service";
 
 interface SigninInputsStepTwo {
     password: string;
@@ -22,12 +23,16 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
     });
     const [sending, setSending] = useState<boolean>(false);
 
-    const onSubmit = (data: SigninInputsStepTwo) => {
+    const onSubmit = async (data: SigninInputsStepTwo) => {
         setSending(true);
-        setTimeout(() => {
+        try {
+            await identityService.authenticate(props.username, data.password);
+        } catch (err) {
+            // TODO
+            console.log(err);
+        } finally {
             setSending(false);
-            props.onSuccess();
-        }, 800);
+        }
     };
 
     return (

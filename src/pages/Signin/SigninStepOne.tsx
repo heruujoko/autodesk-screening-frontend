@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import InputForm from "../../components/forms/InputForm";
 import MainButton from "../../components/MainButton";
 import SignupLink from "./SignupLink";
+import identityService from "../../services/identity.service";
 
 interface SigninInputsStepOne {
     username: string;
@@ -20,30 +21,23 @@ const SigninStepOne: React.FC<SigninStepOneProps> = (props) => {
     });
     const [sending, setSending] = useState<boolean>(false);
     const [btnText, setBtnText] = useState<string>("Next");
-    const [networkError, setNetworkError] = useState<any>([
-        {
-            field: "username1",
-            message: "The username is not recognized",
-        },
-    ]);
+    const [networkError, setNetworkError] = useState<any>([]);
 
     const hasNetworkError = (field: string) => {
-        return networkError.find((e: any) => e.field === field);
+        return networkError.find((e: any) => e.field_name === field);
     };
 
-    const onSubmit = (data: SigninInputsStepOne) => {
+    const onSubmit = async (data: SigninInputsStepOne) => {
         setSending(true);
         setBtnText("Verifiying");
-        setTimeout(() => {
+        try {
+            await identityService.findUsername(data.username);
+            props.onSuccess(data.username);
+        } catch (err) {
+            setNetworkError(err.response?.data?.error?.data);
+        } finally {
             setSending(false);
-            // props.onSuccess(data.username);
-            setNetworkError([
-                {
-                    field: "username",
-                    message: "The username is not recognized",
-                },
-            ]);
-        }, 800);
+        }
     };
 
     return (

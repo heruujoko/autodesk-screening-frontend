@@ -2,18 +2,11 @@ import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import InputForm from "../components/forms/InputForm";
 import MainButton from "../components/MainButton";
-
-interface SignupInput {
-    firstName: string;
-    lastName: string;
-    username: string;
-    confirmUsername: string;
-    password: string;
-    confirmPassword: string;
-}
+import identityService from "../services/identity.service";
+import {IdentityRequest} from "../interfaces/IdentityRequest";
 
 const Signup: React.FC = () => {
-    const { handleSubmit, control, errors, watch } = useForm<SignupInput>({
+    const { handleSubmit, control, errors, watch } = useForm<IdentityRequest>({
         defaultValues: {
             firstName: "",
             lastName: "",
@@ -25,9 +18,18 @@ const Signup: React.FC = () => {
     });
     const [sending, setSending] = useState<boolean>(false);
 
-    const onSubmit = (data: SignupInput) => {
+    const onSubmit = async (data: IdentityRequest) => {
         // TODO
         console.log(data);
+        setSending(true);
+        try {
+            await identityService.signup(data)
+        } catch (err) {
+            // TODO
+            console.log(err);
+        } finally {
+            setSending(false);
+        }
     };
 
     return (
