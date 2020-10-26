@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import InputForm from "../../components/forms/InputForm";
 import MainButton from "../../components/MainButton";
+import SignupLink from "./SignupLink";
+import identityService from "../../services/identity.service";
+import notificationService from "../../services/notification.service";
 
 interface SigninInputsStepTwo {
     password: string;
@@ -21,12 +24,16 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
     });
     const [sending, setSending] = useState<boolean>(false);
 
-    const onSubmit = (data: SigninInputsStepTwo) => {
+    const onSubmit = async (data: SigninInputsStepTwo) => {
         setSending(true);
-        setTimeout(() => {
+        try {
+            await identityService.authenticate(props.username, data.password);
+            notificationService.successNotification('Authentication success');
+        } catch (err) {
+            notificationService.errorNotification('Authentication failed');
+        } finally {
             setSending(false);
-            props.onSuccess();
-        }, 800);
+        }
     };
 
     return (
@@ -40,7 +47,6 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
             </div>
 
             <form
-                className="bg-white rounded"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <Controller
@@ -62,11 +68,8 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
                     disabled={sending}
                     loading={sending}
                 />
-                <p>
-                    <span className="text-gray-600">New to Autodesk?</span>{" "}
-                    <button className="link underline">Create account</button>
-                </p>
             </form>
+            <SignupLink />
         </>
     );
 };

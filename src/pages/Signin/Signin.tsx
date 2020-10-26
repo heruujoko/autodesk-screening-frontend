@@ -19,7 +19,8 @@ const Signin: React.FC = () => {
     }
 
     const onSuccessStepTwo = () => {
-        // TODO
+        setPageState("username");
+        setUsername("");
     }
 
     return (
