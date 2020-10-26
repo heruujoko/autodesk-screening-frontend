@@ -1,6 +1,6 @@
 module.exports = {
     purge: {
-        enabled: process.env.NODE_ENV === 'production',
+        enabled: process.env.REACT_APP_ENV === 'production',
         content: [
             './public/*.html',
             './src/**/*.tsx',
