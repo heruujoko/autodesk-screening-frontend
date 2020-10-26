@@ -18,7 +18,7 @@ const InputForm: React.FC<InputFormProps> = (props) => {
     return (
         <div className="form-input-wrapper">
             <label
-                className="block text-sm font-bold mb-2"
+                className="block text-sm font-bold mb-8p"
             >
                 {props.label}
             </label>
@@ -34,7 +34,7 @@ const InputForm: React.FC<InputFormProps> = (props) => {
                 disabled={props.disabled}
             />
             {props.isError && (
-                <div className="bg-gray-400 p-2 rounded-b">
+                <div className="p-2 bg-gray-400 rounded-b">
                     <span className="text-sm">{props.errorMessage}</span>
                 </div>
             )}
