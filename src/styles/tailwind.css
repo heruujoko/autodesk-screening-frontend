@@ -60,8 +60,16 @@
     color: #808080;
 }
 
+.main-text-color {
+    color: #006eaf;
+}
+
+.main-bg-color {
+    background: #006eaf;
+}
+
 .link {
-    @apply text-blue-400 underline cursor-pointer;
+    @apply no-underline cursor-pointer main-text-color;
 }
 
 .link-ico {
@@ -69,19 +77,23 @@
 }
 
 .footer {
-    @apply absolute text-center bottom-0 pb-4;
+    @apply absolute bottom-0 pb-4 text-center;
 }
 
 .input-form {
-    @apply shadow appearance-none border rounded w-full py-2 px-3 text-blk leading-tight lh-22p;
+    @apply w-full px-3 py-2 leading-tight border rounded shadow appearance-none text-blk lh-22p;
 }
 
 button:disabled {
     cursor: not-allowed !important;
 }
 
+input:disabled {
+    cursor: not-allowed !important;
+}
+
 .main-button {
-    @apply text-white font-16p py-8p rounded w-full main-button-margin lh-22p;
+    @apply w-full text-white rounded font-16p py-8p main-button-margin lh-22p;
 }
 
 .focus-danger {

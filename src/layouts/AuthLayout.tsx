@@ -6,10 +6,10 @@ const AuthLayout: React.FC = (props) => {
             <div className="flex justify-center auth-layout">
                 {props.children}
                 <div className="footer">
-                    <p className="text-sm">
-                        <span className="text-muted">Your account for everything Autodesk</span>{" "}
-                        <button className="link">learn more</button>
+                    <p className="">
+                        <span className="text-muted">Your account for everything Autodesk</span>
                     </p>
+                    <p className=""><a href="https://www.autodesk.com/" className="link">Learn more</a></p>
                 </div>
             </div>
         </div>

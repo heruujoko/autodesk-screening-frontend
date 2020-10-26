@@ -25,10 +25,12 @@ const Signup: React.FC = () => {
         setSending(true);
         try {
             await identityService.signup(data);
-            notificationService.successNotification('Account created successfully');
-            history.push('/');
+            notificationService.successNotification(
+                "Account created successfully"
+            );
+            history.push("/");
         } catch (err) {
-            notificationService.errorNotification('Signup failed');
+            notificationService.errorNotification("Signup failed");
         } finally {
             setSending(false);
         }
@@ -155,6 +157,16 @@ const Signup: React.FC = () => {
                     disabled={sending}
                     loading={sending}
                 />
+
+                <p className="text-center">
+                    <span className="text-gray-600">Already have account?</span>{" "}
+                    <button
+                        onClick={() => history.push("/")}
+                        className="underline link"
+                    >
+                        Sign in
+                    </button>
+                </p>
             </form>
         </div>
     );

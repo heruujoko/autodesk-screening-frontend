@@ -8,7 +8,15 @@ module.exports = {
             './src/**/*.jsx',
         ]
     },
-    theme: {},
+    theme: {
+        extend: {
+            colors: {
+                blue: {
+                    '400': '#006eaf'
+                }
+            }
+        }
+    },
     variants: {},
     plugins: [],
 }

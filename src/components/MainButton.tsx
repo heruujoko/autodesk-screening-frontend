@@ -14,15 +14,11 @@ const MainButton: React.FC<MainButtonProps> = (props) => {
     return (
         <button
             disabled={props.disabled}
-            className={clsx({
-                "main-button focus:outline-none focus:shadow-outline": true,
-                "bg-blue-600 hover:bg-blue-700": !props.disabled,
-                "bg-gray-400": props.disabled,
-            })}
+            className="bg-blue-400 main-button focus:outline-none focus:shadow-outline hover:bg-blue-700"
             type={props.type || "button"}
             onClick={props.onClick}
         >
-            <div className="flex flex-row justify-center items-center">
+            <div className="flex flex-row items-center justify-center">
                 {props.loading && <LoadingSpinner />}
                 <span className={clsx({"ml-2": props.loading })}>{props.label}</span>
             </div>
