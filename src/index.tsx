@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles/tailwind.output.css';
 import './styles/spinkit.css';
 import App from './App';
-// import reportWebVitals from './reportWebVitals';
 import LogRocket from 'logrocket';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +14,6 @@ ReactDOM.render(
 );
 
 LogRocket.init('pzb1xc/autodesk-demo');
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
+if (process.env.NODE_ENV === 'production') {
+  serviceWorkerRegistration.register();
+}
