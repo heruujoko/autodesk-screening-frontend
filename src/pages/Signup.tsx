@@ -5,6 +5,7 @@ import MainButton from "../components/MainButton";
 import identityService from "../services/identity.service";
 import { IdentityRequest } from "../interfaces/IdentityRequest";
 import notificationService from "../services/notification.service";
+import { useHistory } from "react-router-dom";
 
 const Signup: React.FC = () => {
     const { handleSubmit, control, errors, watch } = useForm<IdentityRequest>({
@@ -18,15 +19,16 @@ const Signup: React.FC = () => {
         },
     });
     const [sending, setSending] = useState<boolean>(false);
+    const history = useHistory();
 
     const onSubmit = async (data: IdentityRequest) => {
         setSending(true);
         try {
             await identityService.signup(data);
             notificationService.successNotification('Account created successfully');
+            history.push('/');
         } catch (err) {
-            // TODO
-            console.log(err);
+            notificationService.errorNotification('Signup failed');
         } finally {
             setSending(false);
         }

@@ -30,8 +30,7 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
             await identityService.authenticate(props.username, data.password);
             notificationService.successNotification('Authentication success');
         } catch (err) {
-            // TODO
-            console.log(err);
+            notificationService.errorNotification('Authentication failed');
         } finally {
             setSending(false);
         }
