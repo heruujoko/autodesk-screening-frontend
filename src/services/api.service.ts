@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://128.199.210.188',
+    baseURL: 'https://autodesk-service.devtabspace.xyz',
 });
 
 // Add a response interceptor
