@@ -1,6 +1,6 @@
 module.exports = {
     purge: {
-        enabled: process.env.NODE_ENV === 'production',
+        enabled: process.env.REACT_APP_ENV === 'production',
         content: [
             './public/*.html',
             './src/**/*.tsx',
@@ -12,7 +12,9 @@ module.exports = {
         extend: {
             colors: {
                 blue: {
-                    '400': '#006eaf'
+                    '300': '#90cdf4',
+                    '400': '#006eaf',
+                    '700': '#2b6cb0'
                 }
             }
         }

@@ -39,7 +39,7 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
     return (
         <>
             <div className="flex flex-row items-center justify-center banner-text">
-                <i onClick={props.onBack} className="fa fa-chevron-left text-blue-400 link-ico"></i>
+                <i onClick={props.onBack} className="text-blue-400 fa fa-chevron-left link-ico"></i>
                 <div className="w-full text-center">
                     <p className="text-2xl">Welcome</p>
                     <span className="text-sm text-muted">{props.username}</span>
@@ -50,6 +50,7 @@ const SigninStepTwo: React.FC<SigninStepTwoProps> = (props) => {
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <Controller
+                    autofocus
                     as={InputForm}
                     name="password"
                     label="Password"

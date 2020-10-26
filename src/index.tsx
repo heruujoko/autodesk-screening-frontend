@@ -14,6 +14,6 @@ ReactDOM.render(
 );
 
 LogRocket.init('pzb1xc/autodesk-demo');
-if (process.env.NODE_ENV === 'production') {
+if (process.env.REACT_APP_ENV === 'production') {
   serviceWorkerRegistration.register();
 }

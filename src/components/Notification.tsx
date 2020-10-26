@@ -32,16 +32,16 @@ const Notification: React.FC = () => {
     return (
         <>
             {successNotification && <NotificationPortal>
-                <div className="absolute top-0 text-center flex justify-center w-full">
-                    <div className="bg-blue-400 p-3 rounded mt-12p">
+                <div className="absolute top-0 flex justify-center w-full text-center">
+                    <div className="p-3 bg-blue-300 rounded mt-12p">
                         <p>{successNotification}</p>
                     </div>
                 </div>
             </NotificationPortal>}
 
             {errorNotification && <NotificationPortal>
-                <div className="absolute top-0 text-center flex justify-center w-full">
-                    <div className="bg-red-400 p-3 rounded mt-12p">
+                <div className="absolute top-0 flex justify-center w-full text-center">
+                    <div className="p-3 bg-red-400 rounded mt-12p">
                         <p>{errorNotification}</p>
                     </div>
                 </div>

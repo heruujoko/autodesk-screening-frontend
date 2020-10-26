@@ -49,6 +49,7 @@ const SigninStepOne: React.FC<SigninStepOneProps> = (props) => {
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <Controller
+                    autofocus
                     as={InputForm}
                     name="username"
                     label="Username"

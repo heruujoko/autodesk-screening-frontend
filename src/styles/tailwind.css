@@ -101,7 +101,12 @@ input:disabled {
 }
 
 body {
+    touch-action: manipulation;
     @apply text-blk;
+}
+
+#root {
+    padding: 30px;
 }
 
 .banner-text > p {

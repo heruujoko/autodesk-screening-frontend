@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL || "";
+
 const instance = axios.create({
-    baseURL: 'https://autodesk-service.devtabspace.xyz',
+    baseURL: BASE_URL
 });
 
 // Add a response interceptor
