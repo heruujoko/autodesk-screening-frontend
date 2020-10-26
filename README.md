@@ -13,6 +13,17 @@ In the project directory, you can run:
 - `npm run test` run unit test
 - `npm run build` to build the project for production use
 
+# Configuration
+in the project there are 2 files for configurations called 
+- `.env` for local development configuration
+- `.env.prod` for production configuration
+
+```
+REACT_APP_API_BASE_URL=https://autodesk-service.devtabspace.xyz
+REACT_APP_ENV=local
+```
+values can be added as needed and accessible from `process.env` within the project.
+
 ## Deployment
 
 Deployment set using Firebase Hosting with Github Actions following their guide on [https://firebase.google.com/docs/hosting/github-integration](https://firebase.google.com/docs/hosting/github-integration)
